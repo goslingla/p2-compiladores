@@ -1,0 +1,17 @@
+def teste1 ( int A , int B )
+{
+    int result = A + B ;
+    int temp = 5  ;
+    result = result * temp ;
+    return result ;
+}
+
+def principal ()
+{
+    int X ;
+    int Y ;
+    X = 10 ;
+    Y = teste1 ( X , 20 ) ;
+    print Y ;
+    return ;
+}

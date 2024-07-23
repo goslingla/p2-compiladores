@@ -1,0 +1,25 @@
+def soma ( int A , int B )
+{
+    int C = A + B ;
+    return C ;
+}
+
+def subtrai ( int A , int B )
+{
+    int D = A - B ;
+    return D ;
+}
+
+def principal ()
+{
+    int X ;
+    int Y ;
+    int resultado1 ;
+    int resultado2 ;
+    X = 7 ;
+    Y = 2 ;
+    resultado1 = soma ( X , Y ) ;
+    resultado2 = subtrai ( X , Y ) ;
+    X = Y @ 5 ;
+    return ;
+}

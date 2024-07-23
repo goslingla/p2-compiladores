@@ -1,0 +1,26 @@
+def func1 ( int A , int B )
+{
+    int C = A + B ;
+    if ( C < B ) {
+        return C ;
+    }
+    if ( A > B ) {
+        return A ;
+    }
+    if ( A == B ) {
+        return A ;
+    }
+    return ;
+}
+
+def principal ()
+{
+    int C ;
+    int D ;
+    int R ;
+    C = 4 ;
+    D = 5 ;
+    R = func1 ( C , D ) ;
+    int erro = 5.5 ;
+    return ;
+}
