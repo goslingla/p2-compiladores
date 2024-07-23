@@ -23,16 +23,16 @@ keywords = {
 }
 
 token_specification = [
+    ('EQ',       r'=='),        # Operador ==
+    ('ASSIGN',   r'='),         # Operador =
     ('NUM',      r'\d+'),       # Inteiros
     ('ID',       r'[A-Za-z_]\w*'),  # Identificadores
     ('PLUS',     r'\+'),        # Operador +
     ('MINUS',    r'-'),         # Operador -
     ('TIMES',    r'\*'),        # Operador *
     ('DIVIDE',   r'/'),         # Operador /
-    ('ASSIGN',   r'='),         # Operador =
     ('LT',       r'<'),         # Operador <
     ('GT',       r'>'),         # Operador >
-    ('EQ',       r'=='),        # Operador ==
     ('LPAREN',   r'\('),        # Parênteses esquerdo
     ('RPAREN',   r'\)'),        # Parênteses direito
     ('LBRACE',   r'\{'),        # Chave esquerda
@@ -52,10 +52,13 @@ def lexer(code):
     tokens = []
     errors = []
 
+    previous_token = None
+
     for mo in re.finditer(token_regex, code):
         kind = mo.lastgroup
         value = mo.group()
         column = mo.start() - line_start
+
         if kind == 'NUM':
             value = int(value)
         elif kind == 'ID':
@@ -69,7 +72,14 @@ def lexer(code):
         elif kind == 'MISMATCH':
             errors.append(f'!!!!! Erro léxico na linha {line_num} coluna {column} : {value!r} !!!!!')
             continue
-        tokens.append(Token(kind, value, line_num, column))
+
+        # Verificar múltiplos operadores consecutivos
+        if previous_token and previous_token.type in {'PLUS', 'MINUS', 'TIMES', 'DIVIDE'} and kind in {'PLUS', 'MINUS', 'TIMES', 'DIVIDE'}:
+            errors.append(f'!!!!! Erro léxico na linha {line_num} coluna {column} : múltiplos operadores {previous_token.value}{value} !!!!!')
+            continue
+
+        previous_token = Token(kind, value, line_num, column)
+        tokens.append(previous_token)
     
     if errors:
         for error in errors:

@@ -1,15 +1,17 @@
 def teste1 ( int A , int B )
 {
     int result = A + B ;
-    return result ;
+    return  ;
 }
 
 def principal ()
 {
     int X ;
     int Y ;
+    int Z ;
     X = 10 ;
-    Y = teste1 ( X , 20 ; 
-    print Y ;
+    Y = 8;
+    Z = teste1 ( X , Y ; 
+    print Z ;
     return ;
 }

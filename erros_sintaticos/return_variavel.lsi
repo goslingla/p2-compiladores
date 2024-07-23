@@ -1,9 +1,9 @@
-def teste1 ( int A , int B )
+def teste2 ( int A , int B )
 {
     int result = A + B ;
-    int temp = 5  ;
+    int temp = 5 ;
     result = result * temp ;
-    return result ;
+    return result;
 }
 
 def principal ()
@@ -11,7 +11,8 @@ def principal ()
     int X ;
     int Y ;
     X = 10 ;
-    Y = teste1 ( X , 20 ) ;
-    print Y ;
+    Y = teste2 ( X , 40 ) ;
+    Z = 30 ;
+    print Z ;
     return ;
 }

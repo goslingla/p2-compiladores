@@ -1,0 +1,1 @@
+Erro sintático: Erro: esperava SEMICOLON, mas encontrou ID na linha 6, coluna 11

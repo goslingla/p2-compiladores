@@ -1,0 +1,17 @@
+def func1 ( int A , int B )
+{
+    int C = A + B ;
+    int D = B * C ;
+    return ;
+}
+def principal ()
+{
+    int P ;
+    int Q ;
+    int resultado ;
+    P = 10 ;
+    Q = 5! ;
+    resultado = func1 ( P , Q ) ;
+    int erro1 = P + 123 ;  
+    return ;
+}

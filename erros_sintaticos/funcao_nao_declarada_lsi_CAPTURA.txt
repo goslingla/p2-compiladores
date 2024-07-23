@@ -1,0 +1,1 @@
+Erro sintático: Erro: função não declarada func2 na linha 24, coluna 16

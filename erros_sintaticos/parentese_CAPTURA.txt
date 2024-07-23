@@ -1,0 +1,1 @@
+Erro sintático: Erro: esperava RPAREN, mas encontrou SEMICOLON na linha 14, coluna 23
