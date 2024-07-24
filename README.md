@@ -1,33 +1,5 @@
 # Analisador Léxico e Sintático para LSI-2024-1
 
-## Gramática LSI-2024 Fatorada à Esquerda
-
-```plaintext
-MAIN → STMT | FLIST | ε
-FLIST → FDEF FLIST | FDEF
-FDEF → def id(PARLIST) { STMTLIST }
-PARLIST → int id PARLIST'
-PARLIST' → , int id PARLIST' | ε
-STMT → int id; | ATRIBSTMT; | PRINTSTMT; | RETURNSTMT; | IFSTMT; | { STMTLIST } | ;
-ATRIBSTMT → id = EXPR | id = FCALL
-FCALL → id(PARLISTCALL)
-PARLISTCALL → id PARLISTCALL'
-PARLISTCALL' → , id PARLISTCALL' | ε
-PRINTSTMT → print EXPR
-RETURNSTMT → return
-IFSTMT → if(EXPR) STMT IFSTMT'
-IFSTMT' → else STMT | ε
-STMTLIST → STMT STMTLIST'
-STMTLIST' → STMT STMTLIST' | ε
-EXPR → NUMEXPR EXPR'
-EXPR' → < NUMEXPR | > NUMEXPR | == NUMEXPR | ε
-NUMEXPR → TERM NUMEXPR'
-NUMEXPR' → + TERM NUMEXPR' | - TERM NUMEXPR' | ε
-TERM → FACTOR TERM'
-TERM' → * FACTOR TERM' | ε
-FACTOR → num | (NUMEXPR) | id
-```
-
 ## Gramática Transformada em LL(1)
 
 ```plaintext
