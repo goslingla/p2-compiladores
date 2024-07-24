@@ -1,6 +1,6 @@
-import os  # Importa o módulo os para interagir com o sistema operacional
-import sys  # Importa o módulo sys para manipular argumentos da linha de comando
-from lexer import lexer, Token  # Importa o lexer e a classe Token
+import os
+import sys
+from lexer import lexer, Token
 
 class Parser:
     def __init__(self, tokens):
@@ -236,6 +236,10 @@ def main():
         code = file.read()
 
     tokens = lexer(code)  # Chama a função lexer para analisar o código e gerar os tokens
+
+    # Imprime cada token gerado pelo lexer
+    for token in tokens:
+        print(token)
     
     parser = Parser(tokens)  # Cria uma instância do parser com a lista de tokens
     parser.parse()  # Inicia a análise sintática
