@@ -58,7 +58,7 @@ def lexer(code):
 
     previous_token = None  # Último token processado
 
-    for mo in re.finditer(token_regex, code):
+    for mo in re.finditer(token_regex, code): # mo é match object / retorna um iterador que produz todas as correspondências não sobrepostas da expressão regular fornecida em uma string.
         kind = mo.lastgroup  # Tipo do token identificado
         value = mo.group()  # Valor do token identificado
         column = mo.start() - line_start  # Coluna do token identificado
